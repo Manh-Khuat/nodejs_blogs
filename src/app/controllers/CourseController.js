@@ -1,5 +1,6 @@
 const Course = require('../models/Course');
 const { mongooseToObject } = require('../../util/mongoose');
+const { body, validationResult } = require('express-validator');
 
 class CourseController {
     // get /course//:slug
@@ -16,6 +17,14 @@ class CourseController {
     }
 
     store(req, res, next) {
+        const errors = validationResult(req);
+        if (!errors.isEmpty()) {
+            const errorMessages = errors.array().reduce((acc, error) => {
+                acc[error.path] = error.msg;
+                return acc;
+            }, {});
+            return res.render('course/create', { errors: errorMessages });
+        }
         const formData = req.body;
         formData.image = `https://img.youtube.com/vi/${req.body.videoId}/sddefault.jpg`;
         const course = new Course(formData);

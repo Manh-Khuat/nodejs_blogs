@@ -1,15 +1,12 @@
 <div class="mt4">
   <h3>Đăng khóa học</h3>
-
   <form method="POST" action="/courses/store">
     <div class="form-group">
       <label for="name">Tên khóa học</label>
-      <input
-        type="text"
-        class="form-control"
-        id="name"
-        name="name"
-      />
+      <input type="text" class="form-control" id="name" name="name" />
+      {{#if errors.name}}
+        <div class="text-danger">{{errors.name}}</div>
+      {{/if}}
       <label for="description">Mô tả khóa học</label>
       <input
         type="text"
@@ -17,20 +14,16 @@
         id="description"
         name="description"
       />
+      {{#if errors.description}}
+        <div class="text-danger">{{errors.description}}</div>
+      {{/if}}
       <label for="videoId">VideoId</label>
-      <input
-        type="text"
-        class="form-control"
-        id="videoId"
-        name="videoId"
-      />
+      <input type="text" class="form-control" id="videoId" name="videoId" />
+      {{#if errors.videoId}}
+        <div class="text-danger">{{errors.videoId}}</div>
+      {{/if}}
       <label for="level">Trình độ</label>
-      <input
-        type="text"
-        class="form-control"
-        id="level"
-        name="level"
-      />
+      <input type="text" class="form-control" id="level" name="level" />
     </div>
     <button type="submit" class="btn btn-primary">Thêm khóa học</button>
   </form>
