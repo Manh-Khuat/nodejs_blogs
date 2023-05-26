@@ -23,7 +23,13 @@ class CourseController {
                 acc[error.path] = error.msg;
                 return acc;
             }, {});
-            return res.render('course/create', { errors: errorMessages });
+            const { name, description, videoId } = req.body;
+            return res.render('course/create', {
+                name,
+                description,
+                videoId,
+                errors: errorMessages,
+            });
         }
         const formData = req.body;
         formData.image = `https://img.youtube.com/vi/${req.body.videoId}/sddefault.jpg`;

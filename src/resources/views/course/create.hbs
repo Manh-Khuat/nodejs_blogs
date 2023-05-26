@@ -3,7 +3,7 @@
   <form method="POST" action="/courses/store">
     <div class="form-group">
       <label for="name">Tên khóa học</label>
-      <input type="text" class="form-control" id="name" name="name" />
+      <input type="text" class="form-control" id="name" name="name"  value="{{name}}"/>
       {{#if errors.name}}
         <div class="text-danger">{{errors.name}}</div>
       {{/if}}
@@ -13,12 +13,13 @@
         class="form-control"
         id="description"
         name="description"
+        value="{{description}}"
       />
       {{#if errors.description}}
         <div class="text-danger">{{errors.description}}</div>
       {{/if}}
       <label for="videoId">VideoId</label>
-      <input type="text" class="form-control" id="videoId" name="videoId" />
+      <input type="text" class="form-control" id="videoId" name="videoId" value="{{videoId}}"/>
       {{#if errors.videoId}}
         <div class="text-danger">{{errors.videoId}}</div>
       {{/if}}
