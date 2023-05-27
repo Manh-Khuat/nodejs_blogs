@@ -1,34 +1,30 @@
 <div class="mt-4">
   <h3>Khóa học của tôi</h3>
 
-  <table class="table">
+  <table class="table mt-4">
     <thead>
       <tr>
-                              <th scope="col">#</th>
-        <th scope="col">First</th>
-        <th scope="col">Last</th>
-        <th scope="col">Handle</th>
+        <th scope="col">#</th>
+        <th scope="col">Tên Khóa Học</th>
+        <th scope="col">Mô Tả</th>
+        <th scope="col">Thời Gian Tạo</th>
+        <th scope="col"></th>
       </tr>
     </thead>
     <tbody>
-      <tr>
-        <th scope="row">1</th>
-        <td>Mark</td>
-        <td>Otto</td>
-        <td>@mdo</td>
-      </tr>
-      <tr>
-        <th scope="row">2</th>
-        <td>Jacob</td>
-        <td>Thornton</td>
-        <td>@fat</td>
-      </tr>
-      <tr>
-        <th scope="row">3</th>
-        <td>Larry</td>
-        <td>the Bird</td>
-        <td>@twitter</td>
-      </tr>
+      {{#each courses}}
+        <tr>
+          <th scope="row">{{sum @index 1}}</th>
+          <td>{{this.name}}</td>
+          <td>{{this.description}}</td>
+          <td>{{this.createdAt}}</td>
+          <td class="d-flex">
+            <a href="/courses/{{this._id}}/edit" type="button" class="btn btn-primary text-white bg-primary btn-link">Edit</a>
+            <a href="" type="button" class="btn btn-link text-white ml-2 bg-danger btn-danger">Delete</a>
+          </td>
+        </tr>
+      {{/each}}
+
     </tbody>
   </table>
 </div>
